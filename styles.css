@@ -1,0 +1,38 @@
+.dat{
+		        /*background-image:url('images.jpg');
+		        background-repeat: no-repeat ;*/
+		        text-align:center;
+		        width:400px;
+				margin:0 auto;
+				background:#369886;
+				padding-top:10px;
+				border-radius:5px;
+		}
+		.formBlock {
+			margin-top:10px;
+		}
+.formBlock label {
+	width:10%;
+	text-align:left;
+	padding-left:15px;
+	line-height:25px;
+}
+.formBlock input {
+	width:50%;
+	line-height:25px;
+}
+.addForm {
+	margin:15px 104px 15px 0;
+	padding:5px 8px;
+	background:rgb(160, 151, 44);
+	border:0;
+}
+.tableStyles{
+	table {
+    border-collapse: collapse;
+   }
+
+table, th, td {
+    border: 1px solid black;
+}
+}

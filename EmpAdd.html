@@ -1,0 +1,96 @@
+<!doctype html>
+<html ng-app="App">
+    <head>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<style>
+		table {
+                border-collapse: collapse;
+              }
+
+		table, th, td {
+			border: 1px solid black;
+		}
+</style>
+	</head>
+	<body>
+	  <div ng-controller="Ctrl1" >
+		  <div >
+			  <form name="Form1" ng-class="{'dat':true}" novalidate>
+				  <div ng-class="{'formBlock':true}">
+					 <label for="fname" ng-style="{'float':'left'}">Firstname</label>
+					 <input type="text" id="fname" name="fname" ng-model="add.firstName" ng-maxlength="150" required ng-disabled="disable">
+				  </div>
+						 <div ng-show="addValue">
+							 <span ng-style="{color:'red'}" ng-show="Form1.fname.$error.required">This Field is Mandatory</span>
+							 <span ng-style="{color:'red'}" ng-show="Form1.fname.$error.maxlength">Characters upto 150</span>
+						 </div>
+				 
+				 <div ng-class="{'formBlock':true}">
+				 <label for="lname" ng-style="{'float':'left'}">Lastname</label> 
+				 <input type="text" name="lname" id="lname" ng-model="add.lastName" ng-maxlength="150" required ng-disabled="disable">
+				 </div>
+				 
+						 <div ng-show="addValue">
+						 <span ng-style="{color:'red'}" ng-show="Form1.lname.$error.required">This Field is Mandatory</span>
+						 <span ng-style="{color:'red'}" ng-show="Form1.lname.$error.maxlength">Characters upto 150</span>
+						 </div>
+				 
+				 <div ng-class="{'formBlock':true}">
+						 <label for="email" ng-style="{'float':'left'}">Email</label>  
+						 <input type="email" name="email" id="email" ng-model="add.email" ng-maxlength="150" required ng-disabled="disable">
+				 </div>
+				 
+						 <div ng-show="addValue">
+								 <span ng-style="{color:'red'}" ng-show="Form1.email.$error.required">This Field is Mandatory</span>
+								 <span ng-style="{color:'red'}" ng-show="Form1.email.$error.email">Should Be Valid Email</span>
+								 <span ng-style="{color:'red'}" ng-show="Form1.email.$error.maxlength">Characters upto 150</span>
+						 </div>
+				 
+				 <div ng-class="{'formBlock':true}">
+						 <label for="position" ng-style="{'float':'left'}">Position</label> 
+						 <input type="text" name="position" id="position" ng-model="add.position" ng-maxlength="75" ng-disabled="disable" >
+				 </div>
+				 
+						 <div ng-show="addValue">
+						      <span ng-style="{color:'red'}" ng-show="Form1.position.$error.maxlength">characters upto 75</span>
+						 </div>
+				 
+				 <input ng-class="{'addForm':true}" type="button" ng-click="addEmp(add)" value="AddUser" ng-show="value " >
+				   <input ng-class="{'addForm':true}" type="button" ng-click="update()" value="Update" ng-show="value2" />
+			  </form>
+			  
+			 </div>
+			 
+			 
+			
+			  
+		 
+		 
+		 <div>
+		    <table>
+			  <thead>
+			    <tr>
+			      <th>FirstName</th>
+				  <th>LastName</th>
+				  <th>Email</th>
+				  <th>Position</th>
+				 </tr>
+				</thead>
+				<tbody>
+				 <tr ng-repeat="emp in employee ">
+				    <td> {{emp.firstName}}</td>
+					<td><label> {{emp.lastName}}</label></td>
+					<td><label>  {{emp.email}}</label></td>
+					<td><label> {{emp.position}}</label></td>
+					<td><button ng-click="view($index)">View</button></td>
+					<td><button  ng-click="edit($index)"  >Edit</button></td>
+					<td><button  ng-click="deleteUserData($index)">Delete</button></td>
+				</tr>
+				</tbody>
+			</table>
+		 </div>
+		</div> 
+	</body>
+</html>
